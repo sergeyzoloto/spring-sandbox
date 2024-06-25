@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.web;
 
 import java.util.UUID;
 
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.example.demo.model.Photo;
+import com.example.demo.service.PhotosService;
 
 import java.io.IOException;
 import java.util.Collection;

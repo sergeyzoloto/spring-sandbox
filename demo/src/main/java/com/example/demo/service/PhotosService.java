@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.service;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.UUID;
 //import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Photo;
 
 // @Component annotation is used to indicate that the class is a Spring
 // component. Spring will automatically detect this class and create an
