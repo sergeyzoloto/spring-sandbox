@@ -1,13 +1,11 @@
 package com.example.demo.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +15,6 @@ import com.example.demo.model.Photo;
 import com.example.demo.service.PhotosService;
 
 import java.io.IOException;
-import java.util.Collection;
 
 
 @RestController
@@ -32,12 +29,12 @@ public class PhotosController {
   private static final String PHOTO_NOT_FOUND_MSG = "Photo not found with id ";
 
   @GetMapping("/photos")
-  public Collection<Photo> getPhotos() {
+  public Iterable<Photo> getPhotos() {
     return photosService.getAll();
   }
 
   @GetMapping("/photos/{id}")
-  public Photo getOne(@PathVariable String id) {
+  public Photo getOne(@PathVariable Integer id) {
 
     Photo photo = photosService.get(id);
 
@@ -50,14 +47,8 @@ public class PhotosController {
   }
 
   @DeleteMapping("/photos/{id}")
-  public void deleteOne(@PathVariable String id) {
-
-    Photo photo = photosService.remove(id);
-
-    if (photo == null) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, 
-      PHOTO_NOT_FOUND_MSG + id);
-    }
+  public void deleteOne(@PathVariable Integer id) {
+    photosService.remove(id);
   }
 
   // @Valid is used to validate the request body and @RequestBody

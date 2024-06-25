@@ -20,13 +20,13 @@ public class DownloadController {
   }
 
   @GetMapping("/download/{id}")
-  public ResponseEntity<byte[]> download(@PathVariable String id) {
+  public ResponseEntity<byte[]> download(@PathVariable Integer id) {
     Photo photo = photosService.get(id);
     if (photo == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
-    byte[] data = new byte[0];
+    byte[] data = photo.getData();
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.valueOf(photo.getContentType()));
 
