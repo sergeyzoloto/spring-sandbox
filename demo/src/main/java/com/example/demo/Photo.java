@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.validation.constraints.NotEmpty;
 
 public class Photo {
@@ -10,6 +12,9 @@ public class Photo {
   @NotEmpty // the field is not null or empty
   private String filename;
 
+  // @JsonIgnore annotation is used to ignore the field
+  // when serializing the object to JSON.
+  @JsonIgnore
   private byte[] data;
 
   public Photo() {
