@@ -12,6 +12,8 @@ public class Photo {
   @NotEmpty // the field is not null or empty
   private String filename;
 
+  private String contentType;
+
   // @JsonIgnore annotation is used to ignore the field
   // when serializing the object to JSON.
   @JsonIgnore
@@ -25,7 +27,7 @@ public class Photo {
     this.filename = filename;
   }
 
-  // raw data
+  // Getters and setters
 
   public String getId() {
     return id;
@@ -49,6 +51,14 @@ public class Photo {
 
   public void setData(byte[] data) {
     this.data = data;
+  }
+
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
   }
 
   
